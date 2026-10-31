@@ -1,0 +1,3 @@
+import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
+export default function SectionHeading({eyebrow,title,description,to='/products',link='View all'}){return <div className="mb-6 flex items-end justify-between gap-4"><div><div className="eyebrow mb-2">{eyebrow}</div><h2 className="font-display text-2xl font-bold tracking-tight sm:text-3xl">{title}</h2>{description&&<p className="mt-2 text-sm text-slate-500">{description}</p>}</div><Link to={to} className="hidden shrink-0 items-center gap-2 text-sm font-bold text-brand sm:flex">{link}<ArrowRight size={16}/></Link></div>}

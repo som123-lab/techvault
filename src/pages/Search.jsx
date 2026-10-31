@@ -1,0 +1,4 @@
+import { useSearchParams } from 'react-router-dom'
+import ProductCard from '../components/ProductCard'
+import { products } from '../data/products'
+export default function Search(){const [params]=useSearchParams();const q=params.get('q')||'';const found=products.filter(p=>(p.name+' '+p.brand+' '+p.category+' '+p.description).toLowerCase().includes(q.toLowerCase()));return <div className="container-wide py-10"><div className="eyebrow">Search TechVault</div><h1 className="mt-2 font-display text-3xl font-bold">Results for “{q}”</h1><p className="mt-2 text-sm text-slate-500">{found.length} matching products</p>{found.length?<div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">{found.map(p=><ProductCard key={p.id} product={p}/>)}</div>:<div className="card mt-7 p-12 text-center"><h2 className="font-bold">Nothing matched that search.</h2><p className="mt-2 text-sm text-slate-500">Try a product name, brand or category.</p></div>}</div>}

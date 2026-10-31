@@ -1,0 +1,16 @@
+import { Routes,Route } from 'react-router-dom'
+import StoreLayout from './layouts/StoreLayout'
+import Home from './pages/Home'
+import Products from './pages/Products'
+import Search from './pages/Search'
+import ProductDetail from './pages/ProductDetail'
+import Compare from './pages/Compare'
+import Cart from './pages/Cart'
+import Wishlist from './pages/Wishlist'
+import Auth from './pages/Auth'
+import Account from './pages/Account'
+import Orders from './pages/Orders'
+import Checkout from './pages/Checkout'
+import Confirmation from './pages/Confirmation'
+function NotFound(){return <div className="container-wide py-24 text-center"><h1 className="font-display text-3xl font-bold">Page not found</h1><p className="mt-2 text-slate-500">That page isn’t in this vault.</p><a href="/" className="btn-primary mt-5">Back to home</a></div>}
+export default function App(){return <Routes><Route element={<StoreLayout/>}><Route index element={<Home/>}/><Route path="products" element={<Products/>}/><Route path="category/:category" element={<Products/>}/><Route path="search" element={<Search/>}/><Route path="product/:slug" element={<ProductDetail/>}/><Route path="compare" element={<Compare/>}/><Route path="cart" element={<Cart/>}/><Route path="wishlist" element={<Wishlist/>}/><Route path="login" element={<Auth/>}/><Route path="register" element={<Auth/>}/><Route path="account" element={<Account/>}/><Route path="orders" element={<Orders/>}/><Route path="checkout" element={<Checkout/>}/><Route path="confirmation" element={<Confirmation/>}/><Route path="*" element={<NotFound/>}/></Route></Routes>}

@@ -1,0 +1,6 @@
+import { Link } from 'react-router-dom'
+import { Heart } from 'lucide-react'
+import { products } from '../data/products'
+import { useStore } from '../context/StoreContext'
+import ProductCard from '../components/ProductCard'
+export default function Wishlist(){const {wishlist}=useStore();const items=products.filter(p=>wishlist.includes(p.id));return <div className="container-wide py-10"><div className="eyebrow">Saved for later</div><h1 className="mt-2 font-display text-3xl font-bold">Your wishlist</h1><p className="mt-2 text-sm text-slate-500">A shortlist of things you love.</p>{items.length?<div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">{items.map(p=><ProductCard key={p.id} product={p}/>)}</div>:<div className="card mt-8 flex flex-col items-center py-16 text-center"><Heart size={34} className="text-brand"/><h2 className="mt-4 font-bold">Nothing saved just yet</h2><p className="mt-2 text-sm text-slate-500">Tap the heart on a product to keep it close.</p><Link to="/products" className="btn-primary mt-5">Discover products</Link></div>}</div>}
